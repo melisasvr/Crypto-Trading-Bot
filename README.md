@@ -1,6 +1,6 @@
 # Crypto Trading Bot
 
-A Python-based trading bot that monitors and trades 50 cryptocurrency pairs on Binance’s testnet using a simple moving average (SMA) crossover strategy. It includes a wallet withdrawal feature and logs trades in the console.
+A Python-based trading bot that monitors and trades 50 cryptocurrency pairs on Binance using a simple moving average (SMA) crossover strategy with real funds. It includes a wallet withdrawal feature and logs trades in the console.
 
 ## Features
 - **50 Coins**: Trades 50 popular USDT pairs (e.g., BTC/USDT, ETH/USDT, XRP/USDT).
