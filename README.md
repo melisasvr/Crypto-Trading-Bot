@@ -10,7 +10,7 @@ A Python-based trading bot that monitors and trades 50 cryptocurrency pairs on B
 
 ## Prerequisites
 - Python 3.7+
-- Binance testnet account (get API keys from [Binance Testnet](https://testnet.binance.vision/))
+- Binance account with API keys (create at [Binance API Management](https://www.binance.com/en/my/settings/api-management))
 - Dependencies:
   - `ccxt`: For Binance API interaction
   - `pandas`: For data handling
