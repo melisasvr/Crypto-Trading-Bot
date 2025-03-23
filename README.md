@@ -29,15 +29,24 @@ A Python-based trading bot that monitors and trades 50 cryptocurrency pairs on B
   
 3. Set Up Environment Variables
 - Create a `.env` file in the project directory:
-- API_KEY=your_binance_testnet_api_key
-- API_SECRET=your_binance_testnet_api_secret
-- Replace your_binance_testnet_api_key and your_binance_testnet_api_secret with your Binance testnet credentials.
+- API_KEY=your_binance_api_key
+- API_SECRET=your_binance_api_se-
+cret
+- Replace your_binance_api_key and your _binance_api_secret with your live Binance API credentials.
+- Ensure the API has trading and withdrawal permissions enabled.
 
 ## Usage
-1. Run the Bot:
+1. Modify the Code for Live Trading:
+- Open trading_bot.py and remove or comment out this line:
+- exchange.set_sandbox_mode (True)
+- This ensures the bot uses the live Binance API instead of the testnet.
+  
+2. Run the Bot:
 - python trading_bot.py
-- The bot starts in Binance testnet mode and processes 50 coins every 2 seconds.
-2. Monitor Output:
+- The bot starts trading with real funds on Binance and processes 50 coins every 2 seconds.
+
+
+3. Monitor Output:
 - Example output for NEAR/USDT
 - Processing NEAR/USDT
 - Latest Price: 2.752
@@ -50,13 +59,15 @@ A Python-based trading bot that monitors and trades 50 cryptocurrency pairs on B
 - Sell 1.0 NEAR at 2.752 on 2025-03-22 18:46:47.686629
 - Sell 1.0 NEAR at 2.752 on 2025-03-22 18:47:02.592059
 
-3. Withdraw Funds:
+4. Withdraw Funds:
 - Every 60 seconds, you’ll see:
 - Enter coin to withdraw (e.g., BTC, ETH, XRP) or 'skip':
 - Enter a coin (e.g., `XRP`), amount (e.g., `1.0`), and testnet wallet address, or type `skip`.
 
-4. Stop the Bot:
+
+5. Stop the Bot:
 - Press `Ctrl+C` to exit.
+
 
 ## Configuration
 - Coins: Edit the SYMBOLS list in trading_bot.py to change the 50 pairs.
@@ -64,10 +75,14 @@ A Python-based trading bot that monitors and trades 50 cryptocurrency pairs on B
 - Timeframe: Change TIMEFRAME (default: 1m) to 5m, 15m, etc., if desired.
 - SMA Periods: Modify window=3 and window=10 in analyze_data() for different SMA lengths.
 
+
 ## Notes
-- Testnet Mode: Runs in sandbox mode. For live trading, remove exchange.set_sandbox_mode(True) and use real API keys (use caution!).
-- Rate Limits: 2-second sleep avoids Binance API limits for 50 coins.
-- Errors: If a coin fails (e.g., unavailable on testnet), it skips to the next one.
+- Live Trading: This bot uses real funds via the Binance API.
+- Double-check TRADE_AMOUNTS and test with small amounts first to avoid unintended losses.
+- Rate Limits: 2-second sleep avoids
+Binance API limits for 50 coins.
+- Errors: If a coin fails (e.g., market unavailable), it skips to the next one.
+- Security: Keep your .env file secure and never share your API keys.
 
 ### Sample Output: 
 - Starting Multi-Coin Crypto Trading Bot (50 Coins)...
@@ -89,12 +104,14 @@ A Python-based trading bot that monitors and trades 50 cryptocurrency pairs on B
 
 
 ## Troubleshooting
-- API Errors: Check .env for correct keys and testnet connectivity.
-- No Trades: Testnet data may be static, so try live mode or fewer coins.
-- Performance: Increase time.sleep(2) if rate-limited.
+- API Errors: Verify .env has correct keys and Binance API permissions (trading, withdrawals).
+- No Trades: Ensure your account has funds and the market is active.
+- Performance: Increase
+time.sleep (2) if rate-limited by Binance.
+
 
 ## License
-- MIT License—feel free to modify and share!
+- MIT License feel free to modify and share!
 
 
 
